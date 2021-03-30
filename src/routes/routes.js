@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router,HashRouter, Switch, Route, Link } from "react-router-dom";
 import Login from "../pages/login";
 import HomePage from "../pages/homepage";
 import Container from "../pages/container";
@@ -7,10 +7,11 @@ import Container from "../pages/container";
 // container page is used to distinguish between logged in/logged out user
 export default function Routes() {
     return (
-      <Router>
+      <HashRouter basename="/"> 
         <div>
           <Switch>
             <Route path="/home">
+              
               <HomePage />
             </Route>
             <Route path="/login">
@@ -21,6 +22,6 @@ export default function Routes() {
             </Route>
           </Switch>
         </div>
-      </Router>
+        </HashRouter>
     );
   }
