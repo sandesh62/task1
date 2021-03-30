@@ -1,4 +1,4 @@
-const URL = "http://jsonplaceholder.typicode.com/todos";
+const URL = "https://jsonplaceholder.typicode.com/todos";
 // using default fetch method provided by React
 export const fetchData = async () => {
   let response = null;
