@@ -1,14 +1,15 @@
 import { useState } from "react";
 import { Modal } from "react-bootstrap";
+import {Button, DropdownButton, Dropdown }  from "react-bootstrap";
 
 const dropdownList = [
-  { title: "Option 1", description: "Option 1 is selected" },
-  { title: "Option 2", description: "You selected Option 2" },
-  { title: "Option 3", description: "Option 3 has been selected" },
+  { title: "Option 1", description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum." },
+  { title: "Option 2", description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'," },
+  { title: "Option 3", description: "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia" },
 ];
-const description =
-  "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
-function DropDownSection() {
+const description ="Infomation";
+
+  function DropDownSection() {
   const [selectedOption, setSelectedOption] = useState(0);
   const [showDropDownModal, setDropDownModalStatus] = useState(false);
 
@@ -27,6 +28,8 @@ function DropDownSection() {
       break;
   }
 
+
+
   const handleOptionChange = (index) => {
     setSelectedOption(index);
     setDropDownModalStatus(false);
@@ -34,13 +37,10 @@ function DropDownSection() {
 
   return (
     <>
-      <button
+      <DropdownButton title="Select option"
         style={{ margin: 50 }}
-        onClick={() => setDropDownModalStatus(true)}
+        /*onClick={() => setDropDownModalStatus(true)}*/
       >
-        {showDropDownModal ? "Select Option" : optionName} v
-      </button>
-      <Modal show={showDropDownModal}>
         {dropdownList.map((item, index) => {
           const { title } = item;
           return (
@@ -52,12 +52,15 @@ function DropDownSection() {
                 display: "flex",
               }}
             >
-              <button onClick={() => handleOptionChange(index)}>{title}</button>
+              <Dropdown.Item onClick={() => handleOptionChange(index)}>{title}</Dropdown.Item>
             </div>
           );
         })}
-      </Modal>
-      {!showDropDownModal && (
+
+        
+      </DropdownButton>
+      
+      { (
         <>
           <label>{description}</label>
           {dropdownList.map((item, index) => {
@@ -71,7 +74,7 @@ function DropDownSection() {
                   display: "flex",
                 }}
               >
-                <h4>{description}</h4>
+                <h5>{description}</h5>
               </div>
             ) : null;
           })}

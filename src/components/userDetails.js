@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Modal ,Button } from "react-bootstrap";
+
 
 function UserDetails({ username, userPassword, logout }) {
   const [isPasswordChanging, setPasswordStatus] = useState(false);
@@ -43,10 +45,10 @@ function UserDetails({ username, userPassword, logout }) {
             password ? password: userPassword
           )}
         </label>
-        <button onClick={() => handlePasswordButtonPress()}>
+        <Button onClick={() => handlePasswordButtonPress()}>
           {isPasswordChanging ? "Save Password" : "Change Password"}
-        </button>
-        <button onClick={() => logout()}>Logout</button>
+        </Button>
+        <Button variant="danger" onClick={() => logout()}>Logout</Button>
       </div>
     </>
   );

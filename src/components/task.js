@@ -1,6 +1,6 @@
 import { useState } from "react";
 import AddTask from "./addTaskModal";
-import { Modal } from "react-bootstrap";
+import { Modal ,Button } from "react-bootstrap";
 
 function TaskSection({ taskList, deleteItem,addItem }) {
   const [showAddModal, setAddModal] = useState(false);
@@ -43,11 +43,11 @@ function TaskSection({ taskList, deleteItem,addItem }) {
               >
                 {String(completed)}
               </label>
-              <button onClick={() => deleteItem(index)}>Delete</button>
+              <Button variant="danger" onClick={() => deleteItem(index)}>Delete</Button>
             </div>
           );
         })}
-        <button onClick={() => setAddModal(true)}>Add Task</button>
+        <Button variant="primary" onClick={() => setAddModal(true)}>Add Task</Button>
       </>
     );
   };

@@ -1,6 +1,11 @@
 import { useState, useEffect } from "react";
 import { navigateToPage } from "../routes/navigation";
 import { useHistory, Redirect } from "react-router-dom";
+import { Button , Form} from "react-bootstrap";
+
+
+
+
 
 const initialState = {
   username: "",
@@ -8,6 +13,10 @@ const initialState = {
 };
 
 function Login() {
+
+
+
+  
   const [user, setUsernamePassword] = useState(initialState);
   const [rememberMe, setRememberMe] = useState(false);
   const history = useHistory();
@@ -42,39 +51,54 @@ function Login() {
     }
   };
 
+  
+
   return (
     <>
-      <div 
+      <div className="container-fluid"
         style={{
           alignItems: "center",
           display: "flex",
           flexDirection: "column",
+          width:"30%"
          
           
         }}
       >
-        <label>
+
+
+
+
+
+
+
+
+
+        <Form.Label>
           <b>Username</b>
-        </label>
-        <input
+        </Form.Label>
+        <Form.Control input
           type="text"
+          pattern=".+@gmail\.com|.+@outlook\.com"
          
-          placeholder="Enter Username"
+          placeholder="Enter Email"
           name={"username"}
           onChange={handleuserUpdate}
         />
-        <label>
+        <Form.Label>
           <b>Password</b>
-        </label>
-        <input
+        </Form.Label>
+        <Form.Control input
           type="password"
          
           placeholder="Enter Password"
           name={"password"}
-          onChange={handleuserUpdate}
+          onChange={handleuserUpdate
+            }
+            
         />
         <label>
-          <input
+          < input
             type="checkbox"
             name="rememberMe"
             checked={rememberMe}
@@ -82,10 +106,13 @@ function Login() {
           />
           Remember me
         </label>
-        <button  onClick={() => handleFormSubmit()}>Submit</button>
+        <Button  onClick={() => handleFormSubmit()}>Submit</Button>
       </div>
     </>
   );
 }
 
 export default Login;
+
+
+

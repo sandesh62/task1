@@ -17,13 +17,13 @@ function HomeNavBar({ currentTab, setCurrentTab }) {
           flexDirection: "row",
         }}
       >
-        <div style={{ paddingLeft: 25, paddingRight: 25 }}>LOGO</div>
+        <div style={{ paddingLeft: 30, paddingRight: 30 }}>LOGO</div>
         <div style={{ display: "flex", flexDirection: "row" }}>
           {navBarList.map((item, index) => (
             <div
               style={{
-                width: "25%",
-                padding: 25,
+                width: "30%",
+                padding: 30,
                 backgroundColor: currentTab === index ? "black" : "gray",
               }}
               onClick={() => setCurrentTab(index)}
